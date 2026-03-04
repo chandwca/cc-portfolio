@@ -1,7 +1,6 @@
 import {
   animate,
   motion,
-  useInView,
   useMotionValue,
   useReducedMotion,
   useScroll,
@@ -41,11 +40,8 @@ const Particle = ({
 /* ─── Animated counter ─── */
 const Counter = ({ target, suffix = "", shouldReduceMotion }: { target: number; suffix?: string; shouldReduceMotion: boolean }) => {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-20% 0px -20% 0px" });
 
   useEffect(() => {
-    if (!isInView) return;
     if (shouldReduceMotion) {
       setCount(target);
       return;
@@ -58,9 +54,9 @@ const Counter = ({ target, suffix = "", shouldReduceMotion }: { target: number; 
     });
 
     return () => controls.stop();
-  }, [isInView, shouldReduceMotion, target]);
+  }, [shouldReduceMotion, target]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span>{count}{suffix}</span>;
 };
 
 /* ─── Typewriter ─── */
@@ -427,7 +423,7 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: 1, type: "spring", stiffness: 400, damping: 15 }}
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.06, y: -3 }}
-                className="absolute -top-4 -right-3 bg-card/90 backdrop-blur-sm border border-border/60 shadow-xl rounded-2xl px-3 py-2 text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap"
+                className="absolute -top-4 -right-3 bg-card/90 text-foreground backdrop-blur-sm border border-border/60 shadow-xl rounded-2xl px-3 py-2 text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />

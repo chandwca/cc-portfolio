@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Chetna Chandwani Favicon</title>
+  <desc id="desc">Rounded square icon with interlocking C monogram.</desc>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b2520" />
+      <stop offset="1" stop-color="#111814" />
+    </linearGradient>
+    <linearGradient id="accent" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#79ad00" />
+      <stop offset="1" stop-color="#f27a3a" />
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#bg)" />
+  <rect x="6.5" y="6.5" width="51" height="51" rx="11.5" fill="none" stroke="rgba(255,255,255,0.09)" />
+
+  <path
+    d="M31 22C28.2 18.4 22.6 18.1 18.8 21.5C15.1 24.9 14.8 39.1 18.8 42.5C22.6 45.9 28.2 45.6 31 42"
+    fill="none"
+    stroke="url(#accent)"
+    stroke-width="4.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M47 22C44.2 18.4 38.6 18.1 34.8 21.5C31.1 24.9 30.8 39.1 34.8 42.5C38.6 45.9 44.2 45.6 47 42"
+    fill="none"
+    stroke="url(#accent)"
+    stroke-width="4.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

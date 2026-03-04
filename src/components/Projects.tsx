@@ -20,7 +20,7 @@ const Projects = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Projects"
-          subtitle="A modern showcase layout with spotlight hover interactions."
+          subtitle=""
         />
 
         <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-4 md:mt-20 md:grid-cols-2 md:gap-5">

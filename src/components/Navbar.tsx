@@ -114,14 +114,26 @@ const Navbar = () => {
               {label}
             </a>
           ))}
-          <Button variant="ghost" size="icon" onClick={toggle} className="ml-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            className="ml-2 border border-border/60 bg-card/70 text-foreground hover:bg-accent/70 hover:text-foreground"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </Button>
         </div>
 
         {/* Mobile toggle */}
         <div className="flex md:hidden items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggle}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            className="border border-border/60 bg-card/70 text-foreground hover:bg-accent/70 hover:text-foreground"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </Button>
           <button

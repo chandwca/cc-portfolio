@@ -28,10 +28,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-muted/30">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-6xl">
         <SectionHeading title="Get In Touch" subtitle="Let's build something great together" />
 
-        <div className="grid md:grid-cols-5 gap-8 mt-12">
+        <div className="grid md:grid-cols-5 gap-8 mt-8 md:mt-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

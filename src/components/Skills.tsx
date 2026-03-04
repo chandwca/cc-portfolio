@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { skills } from "@/data/portfolio";
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import { motionEase, motionViewport } from "@/lib/motion";
 
 const container = {
   hidden: {},
@@ -11,24 +12,31 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, scale: 0.95 },
-  show: { opacity: 1, scale: 1 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: motionEase } },
 };
 
 const Skills = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="skills" className="section-padding">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
         <SectionHeading title="Skills & Strengths" subtitle="Core competencies I bring to every team" />
 
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12"
+          viewport={motionViewport}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:mt-10"
         >
           {skills.map((skill) => (
-            <motion.div key={skill.name} variants={item}>
+            <motion.div
+              key={skill.name}
+              variants={item}
+              whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: motionEase }}
+            >
               <Card className="bg-card/60 hover:bg-card hover:border-primary/20 transition-all">
                 <CardContent className="p-5 flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center shrink-0">

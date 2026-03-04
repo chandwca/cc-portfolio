@@ -151,9 +151,151 @@ export const education = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Tech Stack", href: "#tech" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
+
+export type HeroSocialIcon = "linkedin";
+
+export interface HeroStat {
+  label: string;
+  value: number;
+  suffix?: string;
+}
+
+export interface HeroSocialLink {
+  href: string;
+  label: string;
+  icon: HeroSocialIcon;
+}
+
+export interface HeroSection {
+  availabilityText: string;
+  greeting: string;
+  codeCommentPrefix: string;
+  codeIdentityVar: string;
+  fallbackName: string;
+  fallbackTagline: string;
+  roles: string[];
+  snippetWindowTitle: string;
+  snippetLines: string[];
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  resumeCta: {
+    label: string;
+    fallbackHref: string;
+  };
+  connectLabel: string;
+  socialLinks: HeroSocialLink[];
+  profileImage: {
+    src: string;
+    fallbackAlt: string;
+  };
+  openToRolesText: string;
+  stats: HeroStat[];
+  scrollLabel: string;
+  particles: {
+    count: number;
+    minSize: number;
+    sizeRange: number;
+    maxDelay: number;
+  };
+}
+
+export const heroSection: HeroSection = {
+  availabilityText: "Available for Work",
+  greeting: "Hello, I'm",
+  codeCommentPrefix: "//",
+  codeIdentityVar: "developer",
+  fallbackName: "Your Name",
+  fallbackTagline: "Building elegant, performant digital experiences that leave a lasting impression.",
+  roles: [personalInfo.title, "UI/UX Enthusiast", "Problem Solver"],
+  snippetWindowTitle: "HeroPhonePreview.tsx",
+  snippetLines: [
+    "const profile = {",
+    "  name: \"Chetna Chandwani\",",
+    "  role: \"Full Stack Software Engineer\",",
+    "  location: \"Newark, CA\",",
+    "  status: \"Open to development roles\",",
+    "};",
+    "",
+    "const HeroPhonePreview = () => (",
+    "  <PhoneFrame>",
+    "    <img src=\"/profile.jpg\" alt={profile.name} />",
+    "    <Badge>{profile.status}</Badge>",
+    "  </PhoneFrame>",
+    ");",
+    "",
+    "export default HeroPhonePreview;",
+  ],
+  primaryCta: {
+    label: "View Projects",
+    href: "#projects",
+  },
+  resumeCta: {
+    label: "Resume",
+    fallbackHref: "#",
+  },
+  connectLabel: "Connect",
+  socialLinks: [
+    {
+      href: personalInfo.linkedin,
+      label: "LinkedIn",
+      icon: "linkedin",
+    },
+  ],
+  profileImage: {
+    src: "profile.jpg",
+    fallbackAlt: "Profile",
+  },
+  openToRolesText: "Open to development roles",
+  stats: [
+    { label: "Projects", value: 6, suffix: "+" },
+    { label: "Experience", value: 5, suffix: "yrs" },
+    { label: "Clients", value: 5, suffix: "+" },
+  ],
+  scrollLabel: "Scroll",
+  particles: {
+    count: 18,
+    minSize: 3,
+    sizeRange: 5,
+    maxDelay: 4,
+  },
+};
+
+export interface AboutTechPill {
+  name: string;
+  icon: string;
+}
+
+export interface AboutSection {
+  title: string;
+  subtitle: string;
+  educationHeading: string;
+  marqueeDuration: number;
+  marqueeCopies: number;
+  techPills: AboutTechPill[];
+}
+
+export const aboutSection: AboutSection = {
+  title: "About Me",
+  subtitle: "Who I am and what drives me",
+  educationHeading: "Education",
+  marqueeDuration: 90,
+  marqueeCopies: 4,
+  techPills: [
+    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+    { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+    { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
+    { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
+    { name: "Tailwind", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+    { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
+    { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED" },
+    { name: "AWS", icon: "https://cdn.simpleicons.org/amazonaws/FF9900" },
+    { name: "GraphQL", icon: "https://cdn.simpleicons.org/graphql/E10098" },
+    { name: "Postgres", icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
+    { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
+  ],
+};

@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Codec Pro"', "Inter", "system-ui", "sans-serif"],
-        mono: ['"Codec Pro"', "Inter", "system-ui", "sans-serif"],
+        sans: ['"Codec Pro"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ['"Codec Pro"', "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",

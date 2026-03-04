@@ -55,7 +55,7 @@ function InfiniteMarquee() {
 const About = () => {
   return (
     <section id="about" className="section-padding">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title={aboutSection.title} subtitle={aboutSection.subtitle} />
 
         <div className="grid md:grid-cols-5 gap-8 mt-8 md:mt-10">

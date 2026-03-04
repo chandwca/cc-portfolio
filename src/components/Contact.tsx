@@ -8,15 +8,40 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "Thanks for reaching out. I'll get back to you soon." });
-    setForm({ name: "", email: "", message: "" });
+
+    try {
+      await emailjs.send(
+        "service_4slhqxc",     // from EmailJS
+        "template_q1qa0bg",    // from EmailJS
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        "zvglad1vGoRd1p1zw"   // from EmailJS
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon."
+      });
+
+      setForm({ name: "", email: "", message: "" });
+
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong."
+      });
+    }
   };
 
   const links = [
@@ -28,7 +53,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Get In Touch" subtitle="Let's build something great together" />
 
         <div className="grid md:grid-cols-5 gap-8 mt-8 md:mt-10">

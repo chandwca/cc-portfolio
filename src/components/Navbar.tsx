@@ -93,7 +93,7 @@ const Navbar = () => {
         isMobile || scrolled ? "glass shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between h-16">
+      <nav className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <a href="#" onClick={(e) => onNavClick(e, "#")} className="text-lg font-bold tracking-tight text-foreground">
           CC<span className="gradient-text">.</span>
         </a>
@@ -161,7 +161,7 @@ const Navbar = () => {
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3, ease: motionEase }}
             className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl"
           >
-            <div className="container mx-auto px-1 py-3 flex flex-col gap-1">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-1">
               {navLinks.map(({ label, href }) => (
                 <a
                   key={href}

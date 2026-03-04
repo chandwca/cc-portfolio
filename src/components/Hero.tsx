@@ -105,9 +105,17 @@ const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
   const shouldReduceMotion = useReducedMotion();
-  const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 500], [0, -80]);
-  const opacityScroll = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Optimized Scroll Logic for "Breathing Room"
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  // These transforms create the "opening space" effect as you scroll
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const opacityScroll = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const scaleScroll = useTransform(scrollYProgress, [0, 0.8], [1, 0.92]);
 
   /* Subtle mouse-tracking parallax for ambient blobs */
   const mouseX = useMotionValue(0);
@@ -171,7 +179,8 @@ const Hero = () => {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-5 pt-20 md:pt-24 pb-8 md:pb-6"
+      // Increased pb-32 for extra "air" at the bottom
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-5 pt-20 md:pt-24 pb-24 md:pb-32"
     >
       {/* ── Background ── */}
       <div className="absolute inset-0 -z-10">
@@ -201,7 +210,11 @@ const Hero = () => {
       </div>
 
       <motion.div
-        style={shouldReduceMotion ? undefined : { y: yParallax, opacity: opacityScroll }}
+        style={shouldReduceMotion ? undefined : { 
+          y: yParallax, 
+          opacity: opacityScroll,
+          scale: scaleScroll
+        }}
         className="container mx-auto max-w-7xl relative z-10 w-full"
       >
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 md:gap-10 lg:gap-10">
@@ -222,7 +235,6 @@ const Hero = () => {
               >
                 <Sparkles size={12} />
                 {heroSection.availabilityText}
-                {/* Pulsing dot — two-layer for "ping" effect */}
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
@@ -261,7 +273,7 @@ const Hero = () => {
               </h1>
             </motion.div>
 
-            {/* Role typewriter with leading accent line */}
+            {/* Role typewriter */}
             <motion.div variants={item} className="text-lg sm:text-xl md:text-2xl font-medium mb-4 h-8 sm:h-9 flex items-center gap-3">
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -290,9 +302,7 @@ const Hero = () => {
                 </div>
                 <span className="font-mono text-[11px] text-muted-foreground">{heroSection.snippetWindowTitle}</span>
               </div>
-              <pre
-                className="max-h-40 sm:max-h-52 overflow-y-auto overflow-x-auto px-3 sm:px-4 py-2.5 text-[11px] sm:text-xs md:text-sm font-mono leading-5 sm:leading-6 [scrollbar-width:thin] [scrollbar-color:hsl(var(--primary)/0.45)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/35 hover:[&::-webkit-scrollbar-thumb]:bg-primary/55"
-              >
+              <pre className="max-h-40 sm:max-h-52 overflow-y-auto overflow-x-auto px-3 sm:px-4 py-2.5 text-[11px] sm:text-xs md:text-sm font-mono leading-5 sm:leading-6 [scrollbar-width:thin] [scrollbar-color:hsl(var(--primary)/0.45)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/35 hover:[&::-webkit-scrollbar-thumb]:bg-primary/55">
                 {snippetLines.map((line, index) => (
                   <div key={`${line}-${index}`} className="whitespace-pre">
                     <span className="mr-3 inline-block w-5 text-right text-muted-foreground/60">{index + 1}</span>
@@ -304,7 +314,6 @@ const Hero = () => {
 
             {/* CTAs */}
             <motion.div variants={item} className="flex w-full max-w-xl flex-wrap items-center gap-2.5 sm:gap-3 mb-2">
-              {/* Primary — glowing border on hover */}
               <motion.div
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }}
                 whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
@@ -322,13 +331,11 @@ const Hero = () => {
                         <ArrowDown size={16} />
                       </motion.span>
                     </span>
-                    {/* Shimmer sweep */}
                     <motion.span className="absolute inset-0 bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   </a>
                 </Button>
               </motion.div>
 
-              {/* Secondary */}
               <motion.div
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }}
                 whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
@@ -371,7 +378,6 @@ const Hero = () => {
             transition={{ duration: shouldReduceMotion ? 0 : 0.9, delay: shouldReduceMotion ? 0 : 0.3, ease: motionEase }}
             className="w-full flex-[1.08] flex flex-col items-center gap-4"
           >
-            {/* Photo */}
             <div className="relative w-full max-w-[300px] sm:max-w-[370px] mx-auto">
               <motion.div
                 animate={shouldReduceMotion ? undefined : { scale: [1, 1.05, 1], opacity: [0.35, 0.55, 0.35] }}
@@ -416,7 +422,6 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Status chip */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, y: 8 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -452,7 +457,6 @@ const Hero = () => {
                   whileHover={shouldReduceMotion ? undefined : { scale: 1.06, y: -3 }}
                   className="relative flex flex-col items-center justify-center gap-1 bg-card/80 border border-border/40 rounded-2xl py-3.5 px-2 text-center cursor-default backdrop-blur-sm overflow-hidden group"
                 >
-                  {/* Hover shimmer */}
                   <span className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative text-xl sm:text-2xl font-extrabold text-foreground">
                     <Counter target={value} suffix={suffix} shouldReduceMotion={shouldReduceMotion} />

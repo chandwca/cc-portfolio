@@ -52,31 +52,33 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-muted/30">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-padding bg-background">
+      <div className="mx-auto w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         <SectionHeading title="Get In Touch" subtitle="Let's build something great together" />
 
-        <div className="grid md:grid-cols-5 gap-8 mt-8 md:mt-10">
+        <div className="mt-8 grid items-start gap-8 md:mt-10 md:grid-cols-5">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 space-y-4"
+            className="md:col-span-2"
           >
-            {links.map(({ icon: Icon, label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
-                  <Icon size={16} />
-                </div>
-                {label}
-              </a>
-            ))}
+            <div className="space-y-4 pt-1 md:pt-6">
+              {links.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-base text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary">
+                    <Icon size={16} />
+                  </div>
+                  <span className="min-w-0 break-words">{label}</span>
+                </a>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div

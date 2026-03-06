@@ -20,7 +20,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section-padding">
-      <div className="container mx-auto max-w-6xl">
+      <div className="mx-auto w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         <SectionHeading title="Skills & Strengths" subtitle="Core competencies I bring to every team" />
 
         <motion.div
@@ -43,8 +43,8 @@ const Skills = () => {
                     <Zap size={14} className="text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground">{skill.name}</h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">{skill.description}</p>
+                    <h3 className="text-base font-semibold text-foreground">{skill.name}</h3>
+                    <p className="text-sm text-muted-foreground mt-0.5">{skill.description}</p>
                   </div>
                 </CardContent>
               </Card>

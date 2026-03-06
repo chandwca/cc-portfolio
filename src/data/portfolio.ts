@@ -1,7 +1,8 @@
+
 export const personalInfo = {
   name: "Chetna Chandwani",
-  title: "Full Stack Software Engineer",
-  tagline: "I build scalable, production-grade applications with clean architecture and measurable impact.",
+  title: "Full Stack Platform Engineer",
+  tagline: "Scalable Systems • Clean Architecture • Measurable Impact",
   email: "chandwca@gmail.com",
   phone: "+1 513-807-1077",
   location: "Newark, CA",
@@ -12,15 +13,16 @@ export const personalInfo = {
 
 export const aboutMe = {
   summary:
-    "Software Engineer with 4+ years of experience building production-grade web and mobile applications. I specialize in React, Spring Boot (Kotlin), and scalable full-stack architectures that deliver measurable business outcomes.",
+    "Full Stack Platform Engineer with over 5 years of experience architecting high-scale web and mobile ecosystems. Specialized in React, TypeScript, and Node.js, I bridge the gap between complex system design and intuitive UI. I don't just write code — I build the clean, type-safe foundations and resilient APIs that allow production systems to scale with measurable business impact.",
   strengths: [
     "Modular, reusable architecture design",
     "Performance-first frontend engineering",
-    "Full-stack delivery with Spring Boot & React",
-    "Cross-functional team collaboration",
+    "End-to-end full-stack feature delivery",
+    "Robust testing and reliability practices",
+    "Research-driven prototyping and continuous R&D"
   ],
   differentiators:
-    "I combine deep frontend expertise with strong backend skills, enabling me to own features end-to-end — from database schema to pixel-perfect UI — while consistently improving delivery timelines and reducing defects.",
+    "I approach engineering with a systems mindset, bridging frontend performance, backend architecture, and product experience. This allows me to own features end-to-end while building scalable, maintainable systems that improve delivery speed and long-term reliability."
 };
 
 export interface TechCategory {
@@ -48,36 +50,44 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Caritra — Sports Marketplace",
+    name: "Caritra — Sports Marketplace & Management Platform",
     description:
       "A web application connecting tennis enthusiasts with nearby coaching centers. Enables providers to list offerings, schedule classes, and manage bookings on a unified platform.",
-    techStack: ["React.js", "Zustand", "Spring Boot (Kotlin)", "MongoDB", "Flowable BPMN", "Drools"],
+    techStack: [
+      "React",
+      "TypeScript",
+      "Zustand",
+      "shadcn/ui",
+      "Spring Boot (Kotlin)",
+      "PostgreSQL"
+    ],
     achievements: [
-      "Improved feature delivery timelines by ~15–20% through modular architecture",
-      "Enhanced app responsiveness and maintainability by 30% with Zustand state management",
-      "Built custom reusable form system, reducing code redundancy by 70%",
+      "Engineered a high-abstraction 'FormFieldHandler' system using React and TypeScript, unifying over 15+ input types (OTP, Timezones, Multi-select) into a single controller that reduced UI boilerplate by 70%.",
+      "Architected and implemented the core security layer - Privileges, Roles, and Responsibilities",
+      "Led the PostgreSQL data modeling and backend development for the 'Staff Ecosystem,",
+      "Spearheaded R&D for Flowable (BPMN) and Drools to decouple business rules from code, and enforced system reliability through exhaustive unit testing in the Spring Boot (Kotlin) environment.",
     ],
   },
   {
-    name: "ACTS — Compliance Testing Platform",
+    name: "ACTS — Adroitts Compliance Testing Platform",
     description:
       "An automated compliance testing platform that streamlines test execution, validation, and reporting to improve accuracy and reduce manual effort.",
     techStack: ["React.js", "Redux", "FastAPI", "PostgreSQL"],
     achievements: [
-      "Improved test efficiency and UX by 40%",
-      "Integrated multi-cloud file uploads (GCP, AWS, Azure), enhancing flexibility by 50%",
-      "Increased validation accuracy by 35% through automation",
+      "Engineered a state-driven Manual Test Case builder, allowing users to define custom validation steps and execution parameters within a unified UI",
+      "Architected a flexible file-processing system supporting local uploads and cloud-native ingestion from AWS S3, Azure Blob, and GCP Storage",
+      "Developed the core backend logic in FastAPI to compare Actual vs. Expected result sets, automating metadata validation and reducing manual auditing effort",
+      "Utilized Redux to manage complex, multi-step testing workflows, ensuring predictable state transitions and real-time status reporting"
     ],
   },
   {
     name: "YOORZ — Background Verification",
     description:
-      "A mobile and web application performing secure background checks by validating identities, documents, and addresses through automated verification workflows.",
+      "An automated background check and identity verification system designed to establish user trust. Engineered the secure document processing pipeline and multi-factor cross-referencing logic to ensure high-integrity authentication and reliable background screening.",
     techStack: ["React Native", "Node.js", "PostgreSQL"],
     achievements: [
-      "Improved usability and verification speed by 40%",
-      "Increased verification accuracy by 30% with multi-point validation logic",
-      "Reduced manual review by 25% through automated workflows",
+      "Architected and implemented a secure document management system for the upload and validation of identification documents, streamlining the verification pipeline and enhancing processing speed.",
+      "Developed integrated verification mechanisms for Social IDs and address validation, establishing a more reliable foundation for automated background checks and system trust.",
     ],
   },
   {
@@ -216,9 +226,9 @@ export const heroSection: HeroSection = {
   snippetLines: [
     "const profile = {",
     "  name: \"Chetna Chandwani\",",
-    "  role: \"Full Stack Software Engineer\",",
+    "  role: \"Full Stack Platform Engineer\",",
     "  location: \"Newark, CA\",",
-    "  status: \"Open to development roles\",",
+    "  status: \"Seeking New Challenges \",",
     "};",
     "",
     "const HeroPhonePreview = () => (",
@@ -250,7 +260,7 @@ export const heroSection: HeroSection = {
     src: "profile.jpg",
     fallbackAlt: "Profile",
   },
-  openToRolesText: "Open to development roles",
+  openToRolesText: "Seeking New Challenges",
   stats: [
     { label: "Projects", value: 6, suffix: "+" },
     { label: "Experience", value: 5, suffix: "yrs" },

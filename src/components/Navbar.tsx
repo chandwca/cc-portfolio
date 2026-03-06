@@ -93,8 +93,8 @@ const Navbar = () => {
         isMobile || scrolled ? "glass shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#" onClick={(e) => onNavClick(e, "#")} className="text-lg font-bold tracking-tight text-foreground">
+      <nav className="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16">
+        <a href="#" onClick={(e) => onNavClick(e, "#")} className="text-xl font-bold tracking-tight text-foreground">
           CC<span className="gradient-text">.</span>
         </a>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
               key={href}
               href={href}
               onClick={(e) => onNavClick(e, href)}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+              className={`px-3 py-2 text-base font-medium rounded-md transition-colors ${
                 activeSection === href
                   ? "text-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -173,13 +173,13 @@ const Navbar = () => {
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3, ease: motionEase }}
             className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl"
           >
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-1">
+            <div className="mx-auto flex w-full flex-col gap-1 px-4 py-3 sm:px-8 lg:px-12 xl:px-16">
               {navLinks.map(({ label, href }) => (
                 <a
                   key={href}
                   href={href}
                   onClick={(e) => onNavClick(e, href)}
-                  className={`px-4 py-3 text-sm font-medium rounded-xl transition-colors ${
+                  className={`px-4 py-3 text-base font-medium rounded-xl transition-colors ${
                     activeSection === href
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent/70"

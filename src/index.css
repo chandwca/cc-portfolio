@@ -10,6 +10,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: 49 31% 93%;
     --foreground: 105 11% 9%;
 
@@ -54,6 +55,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background: 105 2% 5%;
     --foreground: 49 31% 93%;
 
@@ -109,7 +111,9 @@
     font-family: "Codec Pro", ui-sans-serif, system-ui, sans-serif;
   }
 
-  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
 
   #root {
     margin: 0;
@@ -119,9 +123,14 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 17px;
   }
 
-  
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
 }
 
 @layer utilities {

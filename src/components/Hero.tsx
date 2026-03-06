@@ -211,7 +211,7 @@ const Hero = () => {
           opacity: opacityScroll,
           scale: scaleScroll
         }}
-        className="container mx-auto max-w-7xl relative z-10 w-full"
+        className="relative z-10 mx-auto w-full px-4 sm:px-8 lg:px-12 xl:px-16"
       >
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 md:gap-10 lg:gap-10">
 
@@ -227,24 +227,24 @@ const Hero = () => {
               <motion.span
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.05, x: 3 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 20 }}
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-primary border border-primary/30 bg-primary/5 rounded-full px-4 py-1.5 mb-4"
+                className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-primary border border-primary/30 bg-primary/5 rounded-full px-4 py-1.5 mb-4"
               >
                 <Sparkles size={12} />
                 {heroSection.availabilityText}
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
               </motion.span>
             </motion.div>
 
             {/* Greeting as comment-style code */}
-            <motion.div variants={item} className="mb-2 font-mono text-sm tracking-wider">
+            <motion.div variants={item} className="mb-2 font-mono text-base tracking-wider">
               <span className="text-accent/90">{heroSection.codeCommentPrefix}</span>{" "}
               <span className="text-muted-foreground">{heroSection.greeting}</span>
             </motion.div>
 
-            <motion.p variants={item} className="text-xs md:text-sm font-mono text-muted-foreground/90 mb-1">
+            <motion.p variants={item} className="text-sm md:text-base font-mono text-muted-foreground/90 mb-1">
               <span className="text-primary">const</span>{" "}
               <span className="text-foreground">{heroSection.codeIdentityVar}</span> ={" "}
               <span className="text-accent/90">"</span>
@@ -296,9 +296,9 @@ const Hero = () => {
                   <span className="h-2.5 w-2.5 rounded-full bg-accent/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-primary/80" />
                 </div>
-                <span className="font-mono text-[11px] text-muted-foreground">{heroSection.snippetWindowTitle}</span>
+                <span className="font-mono text-xs sm:text-sm text-muted-foreground">{heroSection.snippetWindowTitle}</span>
               </div>
-              <pre className="max-h-40 sm:max-h-52 overflow-y-auto overflow-x-auto px-3 sm:px-4 py-2.5 text-[11px] sm:text-xs md:text-sm font-mono leading-5 sm:leading-6 [scrollbar-width:thin] [scrollbar-color:hsl(var(--primary)/0.45)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/35 hover:[&::-webkit-scrollbar-thumb]:bg-primary/55">
+              <pre className="max-h-40 sm:max-h-52 overflow-y-auto overflow-x-auto px-3 sm:px-4 py-2.5 text-xs sm:text-sm md:text-base font-mono leading-5 sm:leading-6 [scrollbar-width:thin] [scrollbar-color:hsl(var(--primary)/0.45)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/35 hover:[&::-webkit-scrollbar-thumb]:bg-primary/55">
                 {snippetLines.map((line, index) => (
                   <div key={`${line}-${index}`} className="whitespace-pre">
                     <span className="mr-3 inline-block w-5 text-right text-muted-foreground/60">{index + 1}</span>
@@ -327,7 +327,7 @@ const Hero = () => {
                         <ArrowDown size={16} />
                       </motion.span>
                     </span>
-                    <motion.span className="absolute inset-0 bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                    <motion.span className="absolute inset-0 bg-primary-foreground/20 skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   </a>
                 </Button>
               </motion.div>
@@ -357,7 +357,7 @@ const Hero = () => {
                     rel="noopener noreferrer"
                     whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }}
                     whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-                    className="inline-flex h-11 items-center gap-2 px-4 rounded-md border border-border/60 bg-secondary/70 text-sm font-medium text-foreground hover:border-primary/60 hover:bg-primary/10 transition-all duration-200"
+                    className="inline-flex h-11 items-center gap-2 px-4 rounded-md border border-border/60 bg-secondary/70 text-base font-medium text-foreground hover:border-primary/60 hover:bg-primary/10 transition-all duration-200"
                   >
                     <Icon size={16} />
                     {label}
@@ -390,7 +390,7 @@ const Hero = () => {
               <motion.div
                 whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 20 }}
-                className="relative overflow-hidden rounded-[2.6rem] border border-border/70 bg-card/90 p-2 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.85)] backdrop-blur-sm"
+                className="relative overflow-hidden rounded-[2.6rem] border border-border/70 bg-card/90 p-2 shadow-[0_30px_80px_-40px_hsl(var(--foreground)/0.55)] backdrop-blur-sm"
               >
                 <span className="absolute left-[-4px] top-28 h-14 w-[4px] rounded-r-full bg-border/80" />
                 <span className="absolute left-[-4px] top-44 h-10 w-[4px] rounded-r-full bg-border/80" />
@@ -406,10 +406,10 @@ const Hero = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                   <div className="absolute left-4 top-4 rounded-lg border border-border/60 bg-background/55 px-2 py-1 backdrop-blur-md">
-                    <p className="font-mono text-[10px] text-muted-foreground">preview mobile</p>
+                    <p className="font-mono text-xs sm:text-sm text-muted-foreground">preview mobile</p>
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-4">
-                    <div className="inline-flex items-center rounded-xl border border-white/15 bg-background/55 px-3.5 py-2 backdrop-blur-md">
+                    <div className="inline-flex items-center rounded-xl border border-border/60 bg-background/55 px-3.5 py-2 backdrop-blur-md">
                       <p className="text-sm font-semibold text-foreground">
                         {personalInfo?.name ?? heroSection.fallbackName}
                       </p>
@@ -423,11 +423,11 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: 1, type: "spring", stiffness: 400, damping: 15 }}
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.06, y: -3 }}
-                className="absolute -top-4 -right-3 bg-card/90 text-foreground backdrop-blur-sm border border-border/60 shadow-xl rounded-2xl px-3 py-2 text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap"
+                className="absolute -top-4 -right-3 bg-card/90 text-foreground backdrop-blur-sm border border-border/60 shadow-xl rounded-2xl px-3 py-2 text-sm font-semibold flex items-center gap-1.5 whitespace-nowrap"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
                 {heroSection.openToRolesText}
               </motion.div>
@@ -457,7 +457,7 @@ const Hero = () => {
                   <span className="relative text-xl sm:text-2xl font-extrabold text-foreground">
                     <Counter target={value} suffix={suffix} shouldReduceMotion={shouldReduceMotion} />
                   </span>
-                  <span className="relative text-[11px] text-muted-foreground font-medium tracking-wide uppercase">
+                  <span className="relative text-xs sm:text-sm text-muted-foreground font-medium tracking-wide uppercase">
                     {label}
                   </span>
                 </motion.div>
@@ -476,7 +476,7 @@ const Hero = () => {
         transition={shouldReduceMotion ? { duration: 0 } : { delay: 1.8 }}
         className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground"
       >
-        <span className="text-[10px] uppercase tracking-widest font-medium">{heroSection.scrollLabel}</span>
+        <span className="text-xs uppercase tracking-widest font-medium">{heroSection.scrollLabel}</span>
         <motion.div
           animate={shouldReduceMotion ? undefined : { y: [0, 8, 0] }}
           transition={shouldReduceMotion ? undefined : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

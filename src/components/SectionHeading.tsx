@@ -18,7 +18,7 @@ const SectionHeading = ({ title, subtitle }: Props) => {
       className="text-center"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
-      <p className="text-muted-foreground mt-2 text-sm md:text-base">{subtitle}</p>
+      <p className="text-muted-foreground mt-2 text-base md:text-lg">{subtitle}</p>
       <div className="w-12 h-1 gradient-bg rounded-full mx-auto mt-4" />
     </motion.div>
   );

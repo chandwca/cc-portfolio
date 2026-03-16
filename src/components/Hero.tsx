@@ -101,6 +101,9 @@ const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
   const shouldReduceMotion = useReducedMotion();
+  const resumeHref = personalInfo?.resumeUrl ?? heroSection.resumeCta.fallbackHref;
+  const resumeFileName = "Chetna_Chandwani_Resume.pdf";
+  const isResumePdf = /\.pdf($|\?)/i.test(resumeHref);
 
   // Optimized Scroll Logic for "Breathing Room"
   const { scrollYProgress } = useScroll({
@@ -340,7 +343,12 @@ const Hero = () => {
                   asChild variant="outline" size="lg"
                   className="h-11 sm:h-12 px-5 sm:px-8 border-border/60 hover:border-primary/60 hover:bg-primary/5 hover:text-foreground transition-all duration-200"
                 >
-                  <a href={personalInfo?.resumeUrl ?? heroSection.resumeCta.fallbackHref} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={resumeHref}
+                    download={isResumePdf ? resumeFileName : undefined}
+                    target={isResumePdf ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                  >
                     <FileText size={16} className="mr-2" />
                     {heroSection.resumeCta.label}
                   </a>

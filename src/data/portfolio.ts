@@ -8,7 +8,7 @@ export const personalInfo = {
   location: "Newark, CA",
   linkedin: "https://linkedin.com/in/chetna-chandwani",
   github: "https://github.com/chetnachandwani",
-  resumeUrl: "/Chetna_Chandwani_Resume.pdf",
+  resumeUrl: "/Chetna_Chandwani_CV_2026_New.pdf",
 };
 
 export const aboutMe = {

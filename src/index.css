@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin-primary {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.45) transparent;
+  }
+  .scrollbar-thin-primary::-webkit-scrollbar {
+    height: 3px;
+  }
+  .scrollbar-thin-primary::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin-primary::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.45);
+    border-radius: 99px;
+  }
+  .scrollbar-thin-primary::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+}
+
 @font-face {
   font-family: "Codec Pro";
   src: local("Codec Pro"), local("CodecPro");

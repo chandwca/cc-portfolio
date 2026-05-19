@@ -50,6 +50,30 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: "Frontier Connect — Ministry Network & Student Handoff Platform",
+    description:
+      "A full-stack platform built to eliminate lost students in ministry transitions. When a student relocates, Frontier Connect ensures they are handed off to a vetted local ministry rather than falling through the cracks — connecting a global network of churches, regional coordinators, and a central operations team across the full lifecycle.",
+    techStack: [
+      "Next.js 14",
+      "TypeScript",
+      "Kotlin",
+      "Spring Boot",
+      "Supabase",
+      "PostgreSQL",
+      "Zustand",
+      "Tailwind CSS",
+      "next-intl",
+    ],
+    achievements: [
+      "Architected a three-portal role-based system (Super Admin, Regional Admin, Ministry) with distinct layouts, route protection via middleware, and server-component data fetching — keeping API boundaries strict between server and client layers.",
+      "Engineered a multi-stage onboarding pipeline — from join request intake through Regional Admin assignment, admin review, intake form dispatch, submission review, and final approval — triggering org account creation and Supabase invite on approval.",
+      "Built a real-time notification system using server-sent events, with a Zustand-backed live badge count and auto-refetch hooks that keep pipeline tables current without polling.",
+      "Designed a paginated server-table architecture with a reusable useServerTableData hook across all three portals, supporting client-side filtering, column-level search, and server-driven pagination with consistent empty states.",
+      "Implemented full i18n across 7 languages (EN, AR, DE, ES, HI, KO, TH) using next-intl with server and client translation hooks, covering all three portals and public-facing intake forms.",
+      "Integrated Supabase Auth with custom Spring Boot identity — invitation tokens, expiry tracking, role assignment, and a three-state account status system (Active / Invitation Sent / Expired) with resend capability.",
+    ],
+  },
+  {
     name: "Caritra — Sports Marketplace & Management Platform",
     description:
       "A web application connecting tennis enthusiasts with nearby coaching centers. Enables providers to list offerings, schedule classes, and manage bookings on a unified platform.",
@@ -59,7 +83,7 @@ export const projects: Project[] = [
       "Zustand",
       "shadcn/ui",
       "Spring Boot (Kotlin)",
-      "PostgreSQL"
+      "PostgreSQL",
     ],
     achievements: [
       "Engineered a high-abstraction 'FormFieldHandler' system using React and TypeScript, unifying over 15+ input types (OTP, Timezones, Multi-select) into a single controller that reduced UI boilerplate by 70%.",
@@ -77,7 +101,7 @@ export const projects: Project[] = [
       "Engineered a state-driven Manual Test Case builder, allowing users to define custom validation steps and execution parameters within a unified UI",
       "Architected a flexible file-processing system supporting local uploads and cloud-native ingestion from AWS S3, Azure Blob, and GCP Storage",
       "Developed the core backend logic in FastAPI to compare Actual vs. Expected result sets, automating metadata validation and reducing manual auditing effort",
-      "Utilized Redux to manage complex, multi-step testing workflows, ensuring predictable state transitions and real-time status reporting"
+      "Utilized Redux to manage complex, multi-step testing workflows, ensuring predictable state transitions and real-time status reporting",
     ],
   },
   {
